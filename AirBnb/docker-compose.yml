@@ -9,11 +9,11 @@ services:
       - "3000:3000"
     depends_on:
       - mongo
-    mongo:
+  mongo:
       image: mongo
       volumes:
         - data-volumes:/data/db
       ports:
         - "27017:27017"
 volumes:
-    data-volumes:
+      data-volumes:
