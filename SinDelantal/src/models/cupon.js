@@ -14,6 +14,6 @@ const CuponSchema = new Schema({
     type: String,
     required: true
   }
-},{ collection: "Cupon", timestamps: true });
+},{ collection: 'Cupon', timestamps: true });
 
 export default mongoose.model('Cupon', CuponSchema);

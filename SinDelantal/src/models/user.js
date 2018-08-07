@@ -49,7 +49,7 @@ const UserSchema = new Schema({
     "expiration": String,
     "code": Number
   }]
-}, { collection: "User", timestamps: true });
+}, { collection: 'User', timestamps: true });
 
 UserSchema.pre('save',(next)=>{
   let user = this;

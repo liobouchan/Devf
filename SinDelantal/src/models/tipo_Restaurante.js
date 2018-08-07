@@ -10,6 +10,6 @@ const tipo_RestauranteSchema = new Schema({
     type: String,
     required: true
   }
-},{ collection: "tipo_Restaurante", timestamps: true });
+},{ collection: 'tipo_Restaurante', timestamps: true });
 
 export default mongoose.model('tipo_Restaurante', tipo_RestauranteSchema);
