@@ -34,9 +34,6 @@ const PedidoSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Producto'
   }]
-
-
-
 },{ collection: 'Pedido', timestamps: true });
 
 export default mongoose.model('Pedido', PedidoSchema);
