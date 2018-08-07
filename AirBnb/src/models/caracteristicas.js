@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
-const caracteristicas = new Schema({
+const CaracteristicasSchema = new Schema({
   "nombre":{
     type: String,
     required: true
