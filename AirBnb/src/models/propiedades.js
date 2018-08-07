@@ -52,7 +52,15 @@ const PropiedadesSchema = new Schema({
     ref: 'Servicios',
     required: true
   }],
-  "fotos" : []
+  "fotos" : [],
+  "disponibilidad_inicial":{
+    type: Date,
+    required: true
+  },
+  "disponibilidad_final":{
+    type: Date,
+    required: true
+  }
 },{collection: 'Propiedades', timestamps:true});
 
 export default mongoose.model('Propiedades',PropiedadesSchema);
