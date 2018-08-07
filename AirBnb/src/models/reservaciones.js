@@ -30,6 +30,6 @@ const ReservacionesSchema = new Schema({
   "cargo_extra":{
     type: Number,
   }
-},{collection: "Reservaciones", timestamps:true});
+},{collection: 'Reservaciones', timestamps:true});
 
 export default mongoose.model('Reservaciones',ReservacionesSchema);
