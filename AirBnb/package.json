@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/liobouchan/Devf#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mongoose": "^5.2.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
