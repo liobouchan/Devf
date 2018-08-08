@@ -2,9 +2,10 @@ import express from 'express'
 import parser from 'body-parser'
 import cors from 'cors'
 import mongoose from 'mongoose'
+import User from './src/models/user'
 
 const app = express();
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8000
 const mongoURI = process.env.MONGODB_URI || "mongodb://admin123:admin123@ds133311.mlab.com:33311/bringeit"
 
 mongoose.connect(mongoURI,{useNewUrlParser: true} );
@@ -19,4 +20,22 @@ app.get('/', (req , res)=>{
   res.send('Sin Delantal on');
 });
 
-app.listen(3000, () => console.log('Server on 3000'));
+app.post('/user/create', (req, res) =>{
+  let user = req.body
+
+  console.log(user)
+  User.create(user)
+    .then((user) => {
+      console.log(user._id)
+      return res.status(201).json({
+        message: 'Usuario Creado',
+        id: user._id
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(400).json(err)
+    })
+});
+
+app.listen(PORT, () => console.log('Server on ' + PORT));
