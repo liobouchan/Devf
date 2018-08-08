@@ -48,8 +48,7 @@ const UserSchema = new Schema({
     required: true
   },
   "user_pay":{
-    type: String,
-    required: true
+    type: String
   }
 },{ collection: "Users", timestamps: true });
 
