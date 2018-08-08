@@ -1,0 +1,12 @@
+{
+		"nombre":"Juanito",
+    "apellidos":"Perex",
+    "correo":"dagorik2@gmai.com",
+    "fecha_nacimiento":"1994-04-12",
+    "password":"elpassword",
+    "username":"Dagorik",
+    "genero":"M",
+    "pais":"MX",
+    "ubicacion":"EN MI CASITA",
+    "rol":"USER"
+}
