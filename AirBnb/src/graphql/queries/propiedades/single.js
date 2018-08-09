@@ -1,7 +1,7 @@
 import{GraphQLNonNull, GraphQLID} from 'graphql'
 
-import Propiedad from '../../../models/users'
-import {PropiedadesType} from '../../types/users'
+import Propiedad from '../../../models/propiedades'
+import {PropiedadesType} from '../../types/propiedades'
 
 const querySinglePropiedad = {
     type: PropiedadesType,

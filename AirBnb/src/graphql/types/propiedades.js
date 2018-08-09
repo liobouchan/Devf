@@ -6,6 +6,7 @@ import {
   GraphQLNonNull,
   GraphQLList
 } from 'graphql'
+
 import {UserType} from './users'
 import User from '../../models/users'
 import {CaracteristicasType} from './caracteristicas'
@@ -14,20 +15,24 @@ import Servicio from '../../models/servicios'
 import {ServiciosType} from './servicios'
 
 export const CalificacionType = new GraphQLObjectType({
-  _id:{
-    type: GraphQLNonNull(GraphQLID)
-  },
-  comentarios: {
-    type:GraphQLString
-  },
-  estrellas:{
-    type:GraphQLString
-  }
-})
+  name: "Calificacion",
+  description: "Descripcion de las Calificaciones de las propiedades",
+  fields: () => ({
+    _id:{
+      type: GraphQLNonNull(GraphQLID)
+    },
+    comentarios: {
+      type:GraphQLString
+    },
+    estrellas:{
+      type:GraphQLString
+    }
+  })
+});
 
 export const PropiedadesType = new GraphQLObjectType({
   name: "Propiedades",
-  description: "Descripcion de las propiedades"
+  description: "Descripcion de las propiedades",
   fields: () => ({
     _id:{
       type: GraphQLNonNull(GraphQLID)
@@ -62,7 +67,8 @@ export const PropiedadesType = new GraphQLObjectType({
     },
     calificacion:{
       type:new GraphQLList(CalificacionType)
-    }caracteristicas:{
+    },
+    caracteristicas:{
       type: new GraphQLList(CaracteristicasType),
       resolve(propiedad){
         const {caracteristicas} = propiedad

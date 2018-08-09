@@ -21,10 +21,10 @@ const PropiedadesSchema = new Schema({
   "pais":{
     type: String,
     required: true
-  }
+  },
   "user":{
     type: Schema.Types.ObjectId,
-    ref: 'Users'
+    ref: 'Users',
     required: true
   },
   "tipo":{

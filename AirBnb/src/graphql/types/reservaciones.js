@@ -10,11 +10,12 @@ import {
 
 import {UserType} from './users'
 import User from '../../models/users'
+import {PropiedadesType} from './propiedades'
 import Propiedad from '../../models/propiedades'
 
 export const ReservacionesType = new GraphQLObjectType({
   name: "Reservaciones",
-  description: "Reservacaciones de usuarios"
+  description: "Reservacaciones de usuarios",
   fields: () => ({
     _id:{
       type: GraphQLNonNull(GraphQLID)
@@ -33,16 +34,16 @@ export const ReservacionesType = new GraphQLObjectType({
         return Propiedad.findById(propiedad).exe()
       }
     },
-    status_pago{
+    status_pago : {
       type: GraphQLBoolean
     },
-    numero_personas{
+    numero_personas:{
       type: GraphQLInt
     },
-    status_reservacion{
+    status_reservacion:{
       type: GraphQLBoolean
     },
-    cargo_extra{
+    cargo_extra:{
       type: GraphQLInt
     }
   })

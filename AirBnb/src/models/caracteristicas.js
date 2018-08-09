@@ -10,7 +10,7 @@ const CaracteristicasSchema = new Schema({
     type: String,
     required: true
   },
-  "numero_personas"{
+  "numero_personas":{
     type: Number,
     required: true
   }

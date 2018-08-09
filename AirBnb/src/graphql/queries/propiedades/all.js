@@ -3,7 +3,7 @@ import{
 } from 'graphql'
 
 import Propiedad from '../../../models/propiedades'
-import {PropiedadesType, PropiedadesType} from '../../types/propiedades'
+import {PropiedadesType} from '../../types/propiedades'
 
 const queryAllPropiedades = {
     type: new GraphQLList(PropiedadesType),

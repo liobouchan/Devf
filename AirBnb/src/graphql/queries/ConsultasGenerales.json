@@ -1,0 +1,21 @@
+query todoslosusuarios {
+  allUsers {
+    _id
+    nombre
+    apellidos
+    correo
+    fecha_nacimiento
+    username
+    genero
+    pais
+    ubicacion
+    rol
+    foto
+  }
+}
+
+query unUsuario {
+  singleUser(id: "5b6a3b034c888b17f0b3219a") {
+    nombre
+  }
+}
