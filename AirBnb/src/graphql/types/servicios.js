@@ -8,7 +8,7 @@ import {
 
 export const ServiciosType = new GraphQLObjectType({
   name: "Servicios",
-  description: "Descripcion de servicios que se proveen en la casa"
+  description: "Descripcion de servicios que se proveen en la casa",
   fields: () => ({
     _id:{
       type: GraphQLNonNull(GraphQLID)

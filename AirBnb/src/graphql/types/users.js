@@ -8,7 +8,7 @@ import {
 
 export const UserType = new GraphQLObjectType({
   name: 'Usuarios',
-  description: 'Usuarios de la Base de Datos'
+  description: 'Usuarios de la Base de Datos',
   fields: () => ({
     _id: {
       type : GraphQLNonNull(GraphQLID)
