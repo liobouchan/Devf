@@ -13,7 +13,7 @@ const querySingleUser = {
     },
     resolve(root,params){
         const user = User.findById(params.id).exec();
-        return user
+        return user;
     }
 }
 
