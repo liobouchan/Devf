@@ -10,7 +10,7 @@ const TiendaSchema = new Schema({
     type: String,
     required: true
   },
-  "corre":{
+  "correo":{
     type: String,
     required: true
   },
