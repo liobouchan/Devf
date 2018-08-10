@@ -22,6 +22,7 @@ app.use(cors());
 app.get('/', (req , res)=>{
   res.send('Server on');
 });
+
 app.post('/user/create', (req, res) =>{
   let user = req.body
 
@@ -37,6 +38,7 @@ app.post('/user/create', (req, res) =>{
       return res.status(400).json(err)
     })
 });
+
 app.use('/graphql', graphQLHTTP((req,res)=>({
   schema,
   graphiql: true,

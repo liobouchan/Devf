@@ -2,8 +2,6 @@ import mongoose from 'mongoose'
 
 import bcrypt from 'bcrypt'
 
-
-
 const SALT = 10;
 
 const Schema = mongoose.Schema
@@ -131,7 +129,5 @@ UserSchema.pre('save',function(next){
   });
 
 });
-
-
 
 export default mongoose.model('User', UserSchema);
