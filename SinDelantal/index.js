@@ -2,6 +2,8 @@ import express from 'express'
 import parser from 'body-parser'
 import cors from 'cors'
 import mongoose from 'mongoose'
+import graphQLHTTP from 'express-graphql'
+
 import User from './src/models/user'
 
 const app = express();
