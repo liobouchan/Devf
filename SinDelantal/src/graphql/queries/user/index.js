@@ -1,7 +1,7 @@
 import allUsers from './all'
 import singleUser from './single'
 
-export default{
+export default {
     allUsers,
     singleUse
 }
