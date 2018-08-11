@@ -39,13 +39,11 @@ const PropiedadesSchema = new Schema({
     type: [{
       "comentario" : String,
       "estrellas" : Number
-    }],
-    required: true
+    }]
   },
   "caracteristicas":[{
     type: Schema.Types.ObjectId,
-    ref: 'Caracteristicas',
-    required: true
+    ref: 'Caracteristicas'
   }],
   "servicios":[{
     type: Schema.Types.ObjectId,
