@@ -19,7 +19,7 @@ export const CaracteristicasType = new GraphQLObjectType({
     descripcion: {
       type : GraphQLString
     },
-    numero_personas: {
+    numero: {
       type : GraphQLInt
     }
   })

@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 const PropiedadesSchema = new Schema({
@@ -47,8 +47,7 @@ const PropiedadesSchema = new Schema({
   }],
   "servicios":[{
     type: Schema.Types.ObjectId,
-    ref: 'Servicios',
-    required: true
+    ref: 'Servicios'
   }],
   "fotos" : [],
   "disponibilidad_inicial":{

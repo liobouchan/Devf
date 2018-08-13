@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 const CaracteristicasSchema = new Schema({
@@ -10,7 +10,7 @@ const CaracteristicasSchema = new Schema({
     type: String,
     required: true
   },
-  "numero_personas":{
+  "numero":{
     type: Number,
     required: true
   }
