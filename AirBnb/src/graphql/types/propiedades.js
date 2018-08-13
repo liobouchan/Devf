@@ -95,7 +95,7 @@ export const PropiedadesType = new GraphQLObjectType({
   })
 });
 
-export const PropiedadesInputType = new GraphQLObjectType({
+export const PropiedadesInputType = new GraphQLInputObjectType({
   name: "addPropiedades",
   description: "Agrega Propiedades a la base de datos",
   fields: () => ({
