@@ -3,7 +3,7 @@ import User from '../models/users'
 import { resolve } from 'url';
 
 const secret = 'ejemplodeairbnb'
-const expiresIn = '1m'
+const expiresIn = '16m'
 
 export const createToken = (username, password) => {
     if(!username || !password){

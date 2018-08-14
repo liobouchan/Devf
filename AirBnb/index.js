@@ -9,6 +9,8 @@ import User from './src/models/users.js'
 import Propiedad from './src/models/propiedades'
 
 import {createToken} from './src/resolvers/createToken'
+import {verifyToken} from './src/resolvers/verifyToken'
+
 
 const app = express();
 const PORT = process.env.PORT || 3000
@@ -52,10 +54,36 @@ app.post('/login', (req,res) =>{
         })
 })
 
+app.get('/token' , (req, res) =>{
+  try{
+    const token = req.headers['authorization']
+    console.log(token)
+
+    let user = verifyToken(token)
+    res.send(user)
+  }catch(err){
+    res.status(401).json({message:err.message})
+  }
+})
+
+app.use('/graphql',(req, res, next)=>{
+  const token = req.headers['authorization']
+  try{
+    req.user = verifyToken(token)
+    next()
+
+  }catch(err){
+    res.status(401).json({message:err.message})
+  }
+})
+
 app.use('/graphql', graphQLHTTP((req,res)=>({
   schema,
   graphiql: true,
-  pretty: true
+  pretty: true,
+  context: {
+    user:req.user
+  }
 })));
 
 app.listen(3000, () => console.log('Server on 3000'));
