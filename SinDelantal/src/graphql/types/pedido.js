@@ -17,7 +17,7 @@ import Tienda from '../../models/tienda'
 import { ProductType } from './producto';
 import Producto from '../../models/producto'
 
-  export const PedidosType = new GraphQLInputObjectType({
+  export const PedidosType = new GraphQLObjectType({
       name: "Pedidos",
       description: "Pedidos de la apliacion",
       fields: () => ({
