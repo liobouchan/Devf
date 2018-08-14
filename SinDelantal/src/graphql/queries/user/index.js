@@ -3,5 +3,5 @@ import singleUser from './single'
 
 export default {
     allUsers,
-    singleUse
+    singleUser
 }
