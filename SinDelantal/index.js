@@ -4,6 +4,7 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import graphQLHTTP from 'express-graphql'
 
+import schema from './src/graphql'
 import User from './src/models/user'
 
 const app = express();
