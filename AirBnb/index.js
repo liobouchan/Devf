@@ -8,6 +8,8 @@ import schema from './src/graphql'
 import User from './src/models/users.js'
 import Propiedad from './src/models/propiedades'
 
+import {createToken} from './src/resolvers/createToken'
+
 const app = express();
 const PORT = process.env.PORT || 3000
 const mongoURI = process.env.MONGODB_URI || "mongodb://admin123:admin123@ds215172.mlab.com:15172/bgsg"
@@ -41,7 +43,13 @@ app.post('/user/create', (req, res) =>{
 });
 
 app.post('/login', (req,res) =>{
-  //CREAR UN JSON WEB TOKEN
+  const token = createToken(req.body.username , req.body.password)
+        .then(token => {
+          res.status(201).json({token})
+        })
+        .catch(() => {
+          res.status(403).json({message:'Login Failed'})
+        })
 })
 
 app.use('/graphql', graphQLHTTP((req,res)=>({

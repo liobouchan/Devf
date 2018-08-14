@@ -32,4 +32,5 @@ export const createToken = (username, password) => {
             })
             .catch(err => false)
     })
+    return compare
 }
