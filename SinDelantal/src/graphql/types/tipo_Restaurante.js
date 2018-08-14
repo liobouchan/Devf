@@ -9,7 +9,7 @@ import {
 
 export const type_RestaurantType = new GraphQLObjectType({
   name: 'tipo_Restaurante',
-  description: 'Que tipo de restaurante es la comida'
+  description: 'Que tipo de restaurante es la comida',
   fields: () => ({
     _id: {
       type : GraphQLNonNull(GraphQLID)

@@ -9,7 +9,7 @@ import {
 
 export const StoreType = new GraphQLObjectType({
   name: 'Tienda',
-  description: 'Descripcion de las Tiendas en el sistema'
+  description: 'Descripcion de las Tiendas en el sistema',
   fields: () => ({
     _id: {
       type : GraphQLNonNull(GraphQLID)
@@ -27,7 +27,7 @@ export const StoreType = new GraphQLObjectType({
       type : Number
     },
     tipo_Restaurante: {
-      type : type_RestaurantType
+      type : type_RestaurantType,
       resolve(tipo){
         const{tipo_Restaurante} = tipo
         return Tipo_Restaurante.findById(tipo_Restaurante).exec()
