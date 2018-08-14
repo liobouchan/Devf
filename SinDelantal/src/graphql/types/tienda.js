@@ -7,6 +7,9 @@ import {
   GraphQLList
 } from 'graphql'
 
+import {type_RestaurantType} from './tipo_Restaurante'
+import Tipo_Restaurante from '../../models/tipo_Restaurante'
+
 export const StoreType = new GraphQLObjectType({
   name: 'Tienda',
   description: 'Descripcion de las Tiendas en el sistema',
@@ -24,7 +27,7 @@ export const StoreType = new GraphQLObjectType({
       type : GraphQLString
     },
     telefono: {
-      type : Number
+      type : GraphQLInt
     },
     tipo_Restaurante: {
       type : type_RestaurantType,
