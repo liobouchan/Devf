@@ -41,4 +41,10 @@ app.post('/user/create', (req, res) =>{
     })
 });
 
+app.use('/graphql' , graphQLHTTP((req,res) => ({
+  schema,
+  graphiql: true,
+  pretty: true
+})));
+
 app.listen(PORT, () => console.log('Server on ' + PORT));
