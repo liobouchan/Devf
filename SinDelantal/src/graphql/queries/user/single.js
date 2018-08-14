@@ -1,4 +1,4 @@
-import {GraphQLNonNull, GrapgQLID} from 'graphql'
+import {GraphQLNonNull, GraphQLID} from 'graphql'
 
 import User from '../../../models/user'
 import {UserType} from '../../types/user'
@@ -8,7 +8,7 @@ const querySingleUser = {
     args: {
         id: {
             name: 'ID',
-            type: GraphQLNonNull(GrapgQLID)
+            type: GraphQLNonNull(GraphQLID)
         }
     },
     resolve(root, params){
