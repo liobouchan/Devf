@@ -4,7 +4,6 @@ import {
 
 import Propiedad from '../../../models/propiedades'
 import {PropiedadesType,PropiedadesInputType} from '../../types/propiedades'
-import propiedades from '../../../models/propiedades';
 
 export default {
     type:PropiedadesType,
