@@ -40,6 +40,10 @@ app.post('/user/create', (req, res) =>{
     })
 });
 
+app.post('/login', (req,res) =>{
+  //CREAR UN JSON WEB TOKEN
+})
+
 app.use('/graphql', graphQLHTTP((req,res)=>({
   schema,
   graphiql: true,
