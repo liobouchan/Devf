@@ -66,7 +66,7 @@ app.get('/token' , (req, res) =>{
   }
 })
 
-app.use('/graphql',(req, res, next)=>{
+/* app.use('/graphql',(req, res, next)=>{
   const token = req.headers['authorization']
   try{
     req.user = verifyToken(token)
@@ -75,7 +75,7 @@ app.use('/graphql',(req, res, next)=>{
   }catch(err){
     res.status(401).json({message:err.message})
   }
-})
+}) */
 
 app.use('/graphql', graphQLHTTP((req,res)=>({
   schema,
