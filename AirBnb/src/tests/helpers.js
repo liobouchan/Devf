@@ -5,7 +5,7 @@ process.env.NODE_ENV = 'test'
 
 const config = {
     db:{
-        test:'mongodb://<dbuser>:<dbpassword>@ds221292.mlab.com:21292/prueba'
+        test:'mongodb://admin123:admin123@ds221292.mlab.com:21292/prueba'
     },
     connection:null
 }
