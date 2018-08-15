@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { mongo } from 'mongoose'
 import { rejects } from 'assert';
 
 process.env.NODE_ENV = 'test'
@@ -27,8 +27,27 @@ function connect(){
             .once('open', resolve)
             .on('error' , (e) => {
                 console.log(e)
-                reject()
+                reject();
             })
     });
+}
 
+function clearDatabase() {
+    return new Promise((resolve,reject) => {
+        let cont = 0
+        let max = Object.keys(mongoose.connection.collection).length;
+        for(const i in mongoose.connection.collection){
+            mongoose.connection.collection[i].remove(function(){
+                cont++;
+                if(cont >= max){
+                    resolve();
+                }
+            })
+        }
+    });
+}
+
+export async function setUpTest(){
+    await connect()
+    await clearDatabase()
 }
