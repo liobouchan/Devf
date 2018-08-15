@@ -19,5 +19,16 @@ function connect(){
                reconnectInternal:1000
            }
        };
+       mongoose.connect(config.db.test,options);
+
+       config.connection = mongoose.connection;
+
+       config.connection
+            .once('open', resolve)
+            .on('error' , (e) => {
+                console.log(e)
+                reject()
+            })
     });
+
 }
