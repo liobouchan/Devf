@@ -1,53 +1,70 @@
-import mongoose, { mongo } from 'mongoose'
-import { rejects } from 'assert';
+import mongoose from 'mongoose';
 
-process.env.NODE_ENV = 'test'
+const { ObjectId } = mongoose.Types;
+
+process.env.NODE_ENV = 'test';
 
 const config = {
-    db:{
-        test:'mongodb://admin123:admin123@ds221292.mlab.com:21292/prueba'
-    },
-    connection:null
-}
+  db: {
+    test: 'mongodb://prueba:prueba123@ds221242.mlab.com:21242/testing',
+  },
+  connection: null,
+};
 
-function connect(){
-    return new Promise((resolve,reject) => {
-       const options = {
-           server: {
-               auto_reconnect: true,
-               reconnectTries: Number.MAX_VALUE,
-               reconnectInternal:1000
-           }
-       };
-       mongoose.connect(config.db.test,options);
+function connect() {
+  return new Promise((resolve, reject) => {
+    if (config.connection) {
+      return resolve();
+    }
 
-       config.connection = mongoose.connection;
+    const mongoUri = 'mongodb://prueba:prueba123@ds221242.mlab.com:21242/testing';
 
-       config.connection
-            .once('open', resolve)
-            .on('error' , (e) => {
-                console.log(e)
-                reject();
-            })
-    });
+    mongoose.Promise = Promise;
+
+    const options = {
+      server: {
+        auto_reconnect: true,
+        reconnectTries: Number.MAX_VALUE,
+        reconnectInterval: 1000,
+      },
+      useNewUrlParser: true
+    };
+
+    mongoose.connect(mongoUri, options);
+
+    config.connection = mongoose.connection;
+
+    config.connection
+      .once('open', resolve)
+      .on('error', (e) => {
+        if (e.message.code === 'ETIMEDOUT') {
+          console.log(e);
+
+          mongoose.connect(mongoUri, options);
+        }
+
+        console.log(e);
+        reject(e);
+      });
+  });
 }
 
 function clearDatabase() {
-    return new Promise((resolve,reject) => {
-        let cont = 0
-        let max = Object.keys(mongoose.connection.collection).length;
-        for(const i in mongoose.connection.collection){
-            mongoose.connection.collection[i].remove(function(){
-                cont++;
-                if(cont >= max){
-                    resolve();
-                }
-            })
-        }
+    return new Promise(resolve => {
+      let cont = 0;
+      let max = Object.keys(mongoose.connection.collections).length;
+      for (const i in mongoose.connection.collections) {
+        mongoose.connection.collections[i].remove(function() {
+          cont++;
+          if(cont >= max) {
+            resolve();
+          }
+        });
+      }
     });
-}
+  }
 
-export async function setUpTest(){
-    await connect()
-    await clearDatabase()
+export  function setupTest() {
+   connect();
+   //await clearDatabase();
 }
