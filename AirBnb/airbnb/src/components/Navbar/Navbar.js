@@ -11,7 +11,7 @@ class Navbar extends Component {
                 </button>
 
                 <div className="collapse navbar-collapse" id="collapseAirbnb">
-                    <ul>
+                    <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <a className="nav-link">Propiedades</a>
                         </li>
