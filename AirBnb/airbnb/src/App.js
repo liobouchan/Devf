@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.sass';
+import './App.scss';
 //import 'bootstrap/scss/bootstrap/bootstrap'
 //import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/dist/jquery.min'
