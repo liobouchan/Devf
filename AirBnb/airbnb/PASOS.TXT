@@ -1,0 +1,32 @@
+cd /etc/nginx
+sudo vim sites-available/default
+en donde dice root quitar lo que existe ahi BORRAR.
+quitar todos los que dicen index
+server_name *.compute.amazonaws.com;
+borrar try files
+poner proxy_pass http://127.0.0.1:8080;
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host;
+proxy_cache_bypass $http_upgrade;
+esc , : wq
+
+sudo nginx -t debe de salir que todo es OK
+sudo service nginx restart7
+sudo service ngnx status debe de aparecer running 
+
+
+heroku login
+agregar nuestras credenciales
+heroku create nombredenuestraApp
+git remove -v tienen que estar git y heroku
+git commit 
+git push heroku master
+
+
+npm install -g create-react-app
+npm start
+npm install bootstrap jquery popper.js sass-loader node-sass --save
+en src crear carpeta components
+abrir app.js
