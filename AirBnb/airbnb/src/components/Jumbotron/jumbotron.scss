@@ -1,0 +1,11 @@
+@import '../../colors.scss'
+
+.btn-search{
+    background-color: $ACCENT_COLOR;
+    border: 1px solid $ACCENT_COLOR;
+    color: $TEXT_COLOR;
+        &:hover{
+            background-color: #ffffff;
+            color: $PRIMARY_TEXT;
+        }
+}
