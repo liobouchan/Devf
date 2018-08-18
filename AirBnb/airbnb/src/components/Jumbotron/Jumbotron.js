@@ -4,7 +4,7 @@ import './jumbotron.scss'
 class Jumbotron extends Component{
     render(){
         return(
-            <section className="jumbotron">
+            <section className="jumbotron text-center">
                 <h1 className="display-3" >!Bienvenido al Clone de Airbnb!</h1>
                 <hr className="my-4" />
                 <p>Busca Propiedades en cualquier parte del mundo</p>
@@ -19,3 +19,5 @@ class Jumbotron extends Component{
         )
     }
 }
+
+export default Jumbotron;

@@ -4,7 +4,7 @@ import './App.scss';
 //import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/dist/jquery.min'
 import 'bootstrap/dist/js/bootstrap.min'
-
+import Jumbotron from './components/Jumbotron/Jumbotron'
 import Navbar from './components/Navbar/Navbar'
 
 class App extends Component {
@@ -12,7 +12,8 @@ class App extends Component {
     return (
       <div>
         <Navbar/>
-        <main className="container">
+        <main className="container-fluid">
+        <Jumbotron/>
         </main>
       </div>
     );
