@@ -8,9 +8,9 @@ class Navbar extends Component {
     render(){
         return(
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a  className="navbar-brand" href="#">Airbnb Clone</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseAirbnb" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <a  className="navbar-brand" href="">Airbnb Clone</a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseAirbnb" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="collapseAirbnb">
