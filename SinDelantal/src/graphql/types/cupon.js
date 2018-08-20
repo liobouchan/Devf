@@ -26,4 +26,20 @@ export const CuponType = new GraphQLObjectType({
             type : GraphQLString
         }
     })
-})
+});
+
+export const CuponInputType = new GraphQLInputObjectType({
+    name: "AddCupon",
+    description: "Agrega cupones existentes para Promociones",
+    fields: () => ({
+        cupon: {
+            type : GraphQLString
+        },
+        descuento: {
+            type : GraphQLString
+        },
+        descripcion: {
+            type : GraphQLString
+        } 
+    })
+});
