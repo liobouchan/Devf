@@ -4,6 +4,7 @@ import GenericInput from '../GenericInput/GenericInput';
 
 class Signup extends Component{
     constructor(){
+        super();
         this.state = {
             correo:"",
             nombre:"",
