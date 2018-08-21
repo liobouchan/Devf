@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import './signup.scss';
 import GenericInput from '../GenericInput/GenericInput';
+import services from '../../services'
 
 class Signup extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             correo:"",
             nombre:"",
@@ -28,11 +29,17 @@ class Signup extends Component{
     submitForm = (event) => {
         event.preventDefault();
         if(this.checkPassword()){
-            console.log(this.state)
+            //console.log(this.state)
+            services.createUser(this.state).then((resp)=>{
+                console.log(resp.data)
+                this.props.history.push('/');
+            }).catch((err) => {
+                console.log(err.response.data)
+            })
         }else{
             alert("Los Passwords no Coinciden ")
         }
-        console.log(this.state)
+        //console.log(this.state)
     }
 
     checkPassword = () =>{
