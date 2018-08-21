@@ -25,11 +25,26 @@ class Signup extends Component{
         })
     }
 
+    submitForm = (event) => {
+        event.preventDefault();
+        if(this.checkPassword()){
+            console.log(this.state)
+        }else{
+            alert("Los Passwords no Coinciden ")
+        }
+        console.log(this.state)
+    }
+
+    checkPassword = () =>{
+        return this.state.password === this.state.check_password;
+    }
+
+
     render(){
         return(
             <div className="row justify-content-center">
                 <div className="col-md-10 col-lg-8">
-                    <form role="form">
+                    <form role="form" onSubmit={this.submitForm}>
                         <GenericInput type={"email"} 
                             value={this.state.correo}
                             name={"correo"}
@@ -78,7 +93,8 @@ class Signup extends Component{
                                 <option value="GT">Guatemala</option>
                                 <option value="BZ">Belice</option>
                             </select>
-                        </div>                                               
+                        </div>    
+                        <button type="submit" className="btn btn-signup">Enviar</button>                                           
                     </form>
                 </div>
             </div>
