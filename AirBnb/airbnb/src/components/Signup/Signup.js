@@ -18,7 +18,7 @@ class Signup extends Component{
         }
     }
 
-    checkInput(event){
+    checkInput = (event) => {
         let {name,value} = event.target
         this.setState({
             [name]:value
