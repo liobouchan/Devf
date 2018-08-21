@@ -33,32 +33,32 @@ class Signup extends Component{
                         <GenericInput type={"email"} 
                             value={this.state.correo}
                             name={"correo"}
-                            onChange={this.checkInput}    
+                            change={this.checkInput}    
                         />
                         <GenericInput type={"text"} 
                             value={this.state.nombre}
                             name={"nombre"}
-                            onChange={this.checkInput}    
+                            change={this.checkInput}    
                         />
                         <GenericInput type={"text"} 
                             value={this.state.apellidos}
                             name={"apellidos"}
-                            onChange={this.checkInput}    
+                            change={this.checkInput}    
                         />
                         <GenericInput type={"text"} 
                             value={this.state.username}
                             name={"username"}
-                            onChange={this.checkInput}    
+                            change={this.checkInput}    
                         />
                         <GenericInput type={"password"} 
                             value={this.state.password}
                             name={"password"}
-                            onChange={this.checkInput}    
+                            change={this.checkInput}    
                         />
                         <GenericInput type={"password"} 
                             value={this.state.check_password}
                             name={"check_password"}
-                            onChange={this.checkInput}    
+                            change={this.checkInput}    
                         />
                         <div className="form-group">
                             <label htmlFor="">Genero</label>
