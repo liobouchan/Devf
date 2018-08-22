@@ -10,24 +10,33 @@ class Login extends Component{
             password: ""
         }
     }
+
     checkInput = (event) => {
         let {name,value} = event.target
         this.setState({
             [name]:value
         })
     }
+
+    formSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+    }
+
     render(){
         return(
-            <div className="row justify-content-center">
+            <div className="row justify-content-center mt-5">
                 <div className="col-md-10 col-lg-8">
-                    <form action="">
-                        <GenericInput type ={"text"} name={"Username"}
+                    <form action="" onSubmit={this.formSubmit}>
+                        <GenericInput type ={"text"} name={"username"}
                             value = {this.state.username}
                             change = {this.checkInput}/>
-                        <GenericInput type ={"password"} name={"Password"}
-                            value = {this.state.username}
+                        <GenericInput type ={"password"} name={"password"}
+                            value = {this.state.password}
                             change = {this.checkInput}/>
-                        <button type="submit" className="btn btn-login mx-auto">Empezar</button>
+                        <div className="text-center">
+                            <button type="submit" className="btn btn-login mx-auto">Empezar</button>
+                        </div>
                     </form>
                 </div>
             </div>
