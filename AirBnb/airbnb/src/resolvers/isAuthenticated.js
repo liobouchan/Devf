@@ -1,1 +1,1 @@
-export default isAuthenticated = (localStorage.getItem('token') !== null)
+export default () => localStorage.getItem('token') !== null;
