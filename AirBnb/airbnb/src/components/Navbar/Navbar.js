@@ -9,7 +9,7 @@ class Navbar extends Component {
    checkAuthenticatedUser = () => {
         if(isAuthenticated()){
             return(
-                <div>
+                <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
                         <Link className="nav-link" to="/logout">Logout</Link>
                     </li>
@@ -18,11 +18,11 @@ class Navbar extends Component {
                             Hola {payload().username} !!!
                         </Link>
                     </li>
-                </div>
+                </ul>
             )
         }else{
             return(
-                <div>
+                <ul navbar-nav ml-auto>
                     <li className="nav-item">
                         <Link className="nav-link" to="/login">LogIn</Link>
                     </li>
@@ -31,7 +31,7 @@ class Navbar extends Component {
                             SignUp
                         </Link>
                     </li>
-                </div>
+                </ul>
             )
         }
    }
@@ -43,25 +43,12 @@ class Navbar extends Component {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseAirbnb" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-
                 <div className="collapse navbar-collapse" id="collapseAirbnb">
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <a className="nav-link">Propiedades</a>
-                        </li>
-                        {this.checkAuthenticatedUser()}
-                    </ul>
-
+                    {this.checkAuthenticatedUser()}
                 </div>
-
             </nav>
         )
-
-
     }
-
-
-
 }
 
 export default Navbar;
