@@ -1,6 +1,8 @@
 import React , {Component} from 'react'
 import './login.scss'
 import GenericInput from '../GenericInput/GenericInput'
+import services from '../../services'
+
 
 class Login extends Component{
     constructor(props){
@@ -20,7 +22,14 @@ class Login extends Component{
 
     formSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
+        services.loginUser(this.state).then((resp) => {
+            localStorage.setItem('token' , resp.data.token );
+            this.props.history.push('/')
+            console.log(resp.data)
+        }).catch((err) => {
+            console.log(err.response.data);
+
+        })
     }
 
     render(){
