@@ -13,6 +13,16 @@ class PropiedadCard extends Component{
             calificacion: [{estrellas:4}, {estrellas:5}]
         }
     }
+
+    calculateAVG() {
+        let suma = 0;
+        if(this.state.calificacion.length == 0) return 0
+        this.state.calificacion.forEach((calificacion)=>{
+            suma += calificacion.estrellas
+        })
+        return suma/this.state.calificacion.length
+    }
+
     render(){
         return(
             <div className="card card-propiedad" >
@@ -21,6 +31,13 @@ class PropiedadCard extends Component{
                     <h5 className="card-title">{this.state.nombre}</h5>
                     <h6 className="card-subtitle">$ {this.state.precio} MXN</h6>
                     <p className="card-text">{this.state.descripcion_corta}</p>
+                    <Rating
+                        emptySymbol= "fa fa-star-o fa-2x"
+                        fullSymbol = "fa fa-star fa-2x"
+                        readonly
+                        initialRating = {this.calculateAVG()}
+                        fractions={2}
+                    />
                 </div>
             </div>
         )
