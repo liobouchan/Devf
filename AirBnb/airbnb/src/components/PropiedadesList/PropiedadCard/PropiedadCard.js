@@ -6,11 +6,11 @@ class PropiedadCard extends Component{
     constructor(props){
         super(props);
         this.state = {
-            nombre: "Casa Bonita",
-            foto: "http://www.dintelo.es/wp-content/uploads/2014/04/casa-moderna-claudia-leccacorvi7-640x877.jpg",
-            precio: "125.00",
-            descripcion_corta: "Esta es una bonita casa bien padriuris",
-            calificacion: [{estrellas:4}, {estrellas:5}]
+            nombre: props.propiedad.nombre,
+            foto: props.propiedad.fotos[0],
+            precio: props.propiedad.precio,
+            descripcion_corta: props.propiedad.descripcion_corta,
+            calificacion: props.propiedad.calificacion
         }
     }
 
