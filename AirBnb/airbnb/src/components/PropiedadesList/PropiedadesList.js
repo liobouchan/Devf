@@ -25,9 +25,10 @@ class PropiedadesList extends Component{
 
     renderHouses = () => (
         <Query query= {GET_HOUSES}>
-            {(loading, error, data) => {
+            {({loading, error, data}) => {
                 if(loading) return (<h4>Loading...</h4>);
-                if(error) return (<h4>No hay casas</h4> )
+                if(error) return (<h4>No hay casas</h4> );
+                if(data) console.log(data);
                 return(
                     <div className="row justify-content-center mt-5">
                         {data.allPropiedades.map((propiedad) => (

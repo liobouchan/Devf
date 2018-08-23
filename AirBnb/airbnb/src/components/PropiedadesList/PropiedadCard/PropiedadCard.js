@@ -10,7 +10,7 @@ class PropiedadCard extends Component{
             foto: props.propiedad.fotos[0],
             precio: props.propiedad.precio,
             descripcion_corta: props.propiedad.descripcion_corta,
-            calificacion: props.propiedad.calificacion
+            calificacion: props.propiedad.calificacion 
         }
     }
 
