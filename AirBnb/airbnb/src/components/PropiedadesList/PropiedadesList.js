@@ -32,7 +32,7 @@ class PropiedadesList extends Component{
                 return(
                     <div className="row justify-content-center mt-5">
                         {data.allPropiedades.map((propiedad) => (
-                            <div className="col-md-3 col-lg-2">
+                            <div className="col-md-2 col-lg-3">
                                 <PropiedadCard propiedad= {propiedad} />
                             </div>    
                         ))}

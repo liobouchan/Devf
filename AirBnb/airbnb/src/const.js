@@ -1,3 +1,4 @@
 export default {
-    API_URL:"https://backendairbnb.herokuapp.com/"
+    API_URL:"https://backend-airbnb22.herokuapp.com/"
 }
+//https://backendairbnb.herokuapp.com/
