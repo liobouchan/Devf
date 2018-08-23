@@ -22,9 +22,11 @@ class Navbar extends Component {
             )
         }else{
             return(
-                <ul navbar-nav ml-auto>
+                <ul className= "navbar-nav ml-auto">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/login">LogIn</Link>
+                        <Link className="nav-link" to="/login">
+                            LogIn
+                        </Link>
                     </li>
                     <li className="nav-item">
                         <Link className="btn btn-signup" to="/signup">
