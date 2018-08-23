@@ -1,5 +1,6 @@
 import React , {Component} from 'react';
-import './PropiedadCard.scss'
+import './PropiedadCard.scss';
+import Rating from 'react-rating';
 
 class PropiedadCard extends Component{
     constructor(props){
