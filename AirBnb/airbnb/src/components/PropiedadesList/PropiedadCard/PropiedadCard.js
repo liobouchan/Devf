@@ -32,8 +32,8 @@ class PropiedadCard extends Component{
                     <h6 className="card-subtitle">$ {this.state.precio} MXN</h6>
                     <p className="card-text">{this.state.descripcion_corta}</p>
                     <Rating
-                        emptySymbol= "fa fa-star-o fa-2x"
-                        fullSymbol = "fa fa-star fa-2x"
+                        emptySymbol= "fa fa-star-o fa-2x star"
+                        fullSymbol = "fa fa-star fa-2x star"
                         readonly
                         initialRating = {this.calculateAVG()}
                         fractions={2}
