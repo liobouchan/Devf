@@ -7,6 +7,7 @@ class PropiedadCard extends Component{
     constructor(props){
         super(props);
         this.state = {
+            id: props.propiedad._id,
             nombre: props.propiedad.nombre,
             foto: props.propiedad.fotos[0],
             precio: props.propiedad.precio,
@@ -24,13 +25,11 @@ class PropiedadCard extends Component{
         return suma/this.state.calificacion.length
     }
 
-    redirectDetail= (e) => {
-        <Redirect to={`/propiedad/${this.props.propiedad._id}`}/>
-    }
+
 
     render(){
         return(
-            <div className="card card-propiedad" onClick={this.redirectDetail} >
+            <div className="card card-propiedad" onClick={(e) => this.props.redirect(this.state.id)} >
                 <img className="card-img-top" src={this.state.foto} alt="Card image cap"/>
                 <div className="card-body">
                     <h5 className="card-title">{this.state.nombre}</h5>
