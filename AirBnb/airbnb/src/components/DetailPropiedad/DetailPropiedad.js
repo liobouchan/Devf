@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import gpl from 'graphql-tag';
+import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
 
 const GET_HOUSE = gql`
-    query{
-        singlePropiedad($id:String){
+    query HOUSE($id:String){
+        singlePropiedad(id:$id){
             nombre,
             descripcion_larga,
             fotos,
@@ -74,3 +74,5 @@ class DetailPropiedad extends Component{
     }
 
 }
+
+export default DetailPropiedad;
