@@ -4,7 +4,8 @@ import {
     GraphQLID,
     GraphQLInt,
     GraphQLNonNull,
-    GraphQLList
+    GraphQLList,
+    GraphQLInputObjectType
 } from 'graphql'
 import { StoreType } from './tienda';
 import Tienda from '../../models/tienda'
@@ -39,4 +40,29 @@ export const ProductType = new GraphQLObjectType({
             }
         }
     })
-})
+});
+
+export const ProductInputType = new GraphQLInputObjectType({
+    name:'addProducto',
+    description: 'Productos que se van a poder vender en las tiendas',
+    fields: () => ({
+        nombre: {
+            type : GraphQLString
+        },
+        precio: {
+            type : GraphQLString
+        },
+        foto: {
+            type : GraphQLString
+        },
+        descripcion: {
+            type : GraphQLString
+        },
+        tipo: {
+            type : GraphQLString
+        },
+        tienda: {
+            type : GraphQLNonNull(GraphQLID)
+        }
+    })
+});
