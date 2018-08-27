@@ -1,5 +1,8 @@
-import addProduct from './add'
+import addProducto from './add'
+import deleteProducto from './delete'
+
 
 export default{
-    addProduct
+    addProducto,
+    deleteProducto
 }
