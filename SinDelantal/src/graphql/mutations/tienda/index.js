@@ -1,8 +1,9 @@
 import addTienda from './add'
 import deleteTienda from './delete'
-//import updateProducto from './update'
+import updateTienda from './update'
 
 export default{
     addTienda,
-    deleteTienda
+    deleteTienda,
+    updateTienda
 }
