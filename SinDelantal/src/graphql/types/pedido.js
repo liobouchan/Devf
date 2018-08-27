@@ -65,4 +65,35 @@ import Producto from '../../models/producto'
             }
         }
       })
-  })
+  });
+
+  export const PedidosInputType = new GraphQLInputObjectType({
+    name: "addPedidos",
+    description: "Pedidos de la apliacion",
+    fields: () => ({
+      status_pedido:{
+          type: GraphQLBoolean
+      },
+      status_pago:{
+          type: GraphQLBoolean
+      },
+      direccion:{
+          type: GraphQLString
+      },
+      cupon:{
+          type: GraphQLNonNull(GraphQLID)
+      },
+      user:{
+          type: GraphQLNonNull(GraphQLID)
+      },
+      tienda:{
+          type: GraphQLNonNull(GraphQLID)
+      },
+      monto:{
+          type: GraphQLString
+      },
+      productos:{
+          type: GraphQLNonNull(GraphQLID)
+      }
+    })
+});
