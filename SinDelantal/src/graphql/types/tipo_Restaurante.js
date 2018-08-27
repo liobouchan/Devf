@@ -4,7 +4,8 @@ import {
   GraphQLID,
   GraphQLInt,
   GraphQLNonNull,
-  GraphQLList
+  GraphQLList,
+  GraphQLInputObjectType
 } from 'graphql'
 
 export const type_RestaurantType = new GraphQLObjectType({
@@ -14,6 +15,19 @@ export const type_RestaurantType = new GraphQLObjectType({
     _id: {
       type : GraphQLNonNull(GraphQLID)
     },
+    nombre: {
+      type : GraphQLString
+    },
+    descripcion: {
+      type : GraphQLString
+    }
+  })
+});
+
+export const type_RestaurantInputType = new GraphQLInputObjectType({
+  name: 'addTipo_Restaurante',
+  description: 'Que tipo de restaurante es la comida',
+  fields: () => ({
     nombre: {
       type : GraphQLString
     },
