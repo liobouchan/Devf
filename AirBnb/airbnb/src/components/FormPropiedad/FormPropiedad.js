@@ -9,7 +9,7 @@ import Calendar from 'react-calendar'
 const CREATE_HOUSE = gql `
     mutation AddPropiedad($data:Propiedades!){
         addPropiedad(data:data){
-            id,
+            _id,
             nombre
         }
     }
@@ -18,7 +18,7 @@ const CREATE_HOUSE = gql `
 const GET_SERVICES = gql `
     query{
         allServicios{
-            id,
+            _id,
             nombre
         }
     }
@@ -79,6 +79,30 @@ class FormPropiedad extends Component{
             servicios:[...prevState.servicios,event.value]
         }))
     }
+
+    renderQuery = () => (
+        <Query query={GET_SERVICES}>
+                                            {   ({loading, error, data}) => {
+                                                    if(loading) return "Loading ..."
+                                                    if(error) return "No hay servicios"
+                                                    return data.allServicios.map( (servicio) => (
+                                                        <label>
+                                                        <input type="checkbox" name="Servicios" 
+                                                        value={servicio._id}
+                                                        checked={
+                                                            () => this.state.servicios.indexOf(servicio._id) !== -1
+                                                        }
+                                                        onChange={this.onCheckBoxChange}
+                                                        />
+                                                        {servicio.nombre}
+                                                        </label>
+                                                    ))
+
+                                                }
+
+                                            }
+                                        </Query>
+    )
 
     render(){
         return(
@@ -163,29 +187,7 @@ class FormPropiedad extends Component{
                             <div className="form-group">
                                 <label htmlFor="">Servicios</label>
                                 {
-                                    () => (
-                                        <Query query={GET_SERVICES}>
-                                            {   ({loading, error, data}) => {
-                                                    if(loading) return "Loading ..."
-                                                    if(error) return "No hay servicios"
-                                                    return data.allServicios.map( (servicio) => (
-                                                        <label>
-                                                        <input type="checkbox" name="Servicios" 
-                                                        value={servicio._id}
-                                                        checked={
-                                                            () => this.state.servicios.indexOf(servicio._id) !== -1
-                                                        }
-                                                        onChange={this.onCheckBoxChange}
-                                                        />
-                                                        {servicio.nombre}
-                                                        </label>
-                                                    ))
-
-                                                }
-
-                                            }
-                                        </Query>
-                                    )
+                                    this.renderQuery()
                                 }
                             </div>
 
