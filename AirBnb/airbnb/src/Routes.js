@@ -13,6 +13,7 @@ import Logout from './components/Logout/Logout'
 import {ApolloProvider} from 'react-apollo';
 import client from './graphql';
 import DetailPropiedad from './components/DetailPropiedad/DetailPropiedad'
+import FormPropiedad from './components/FormPropiedad/FormPropiedad'
 
 class Routes extends Component {
     render(){
@@ -26,6 +27,7 @@ class Routes extends Component {
                         <Route exact path = '/' component={Home}/>
                         <Route exact path = '/logout' component={Logout}/>
                         <Route exact path = '/propiedad/:id' component={DetailPropiedad}/>
+                        <Route exact path = '/propiedad/new' component={FormPropiedad}/>
                     </main>
                 </ApolloProvider>
             </Router>
