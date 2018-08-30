@@ -3,7 +3,7 @@ import {
     GraphQLID
 } from 'graphql'
 
-import Producto from '../../../models/user'
+import Producto from '../../../models/producto'
 import { ProductType } from '../../types/producto';
 
 const querySingleProduct = {

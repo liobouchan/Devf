@@ -13,6 +13,12 @@ var _tipo_Restaurante2 = require('../../models/tipo_Restaurante');
 
 var _tipo_Restaurante3 = _interopRequireDefault(_tipo_Restaurante2);
 
+var _producto = require('./producto');
+
+var _producto2 = require('../../models/producto');
+
+var _producto3 = _interopRequireDefault(_producto2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var StoreType = exports.StoreType = new _graphql.GraphQLObjectType({
@@ -43,20 +49,28 @@ var StoreType = exports.StoreType = new _graphql.GraphQLObjectType({
           return _tipo_Restaurante3.default.findById(tipo_Restaurante).exec();
         }
       },
-      genero: {
+      calificacion: {
         type: _graphql.GraphQLString
       },
-      username: {
+      horario: {
+        type: _graphql.GraphQLString
+      },
+      descripcion: {
         type: _graphql.GraphQLString
       },
       foto: {
         type: _graphql.GraphQLString
       },
-      direcciones: {
-        type: (0, _graphql.GraphQLList)(_graphql.GraphQLString)
+      costo: {
+        type: _graphql.GraphQLString
       },
-      card: {
-        type: (0, _graphql.GraphQLList)(_graphql.GraphQLString)
+      productos: {
+        type: _producto.ProductType,
+        resolve: function resolve(product) {
+          var productos = product.productos;
+
+          return _producto3.default.findById(productos).exec();
+        }
       }
     };
   }
@@ -82,20 +96,23 @@ var StoreInputType = exports.StoreInputType = new _graphql.GraphQLInputObjectTyp
       tipo_Restaurante: {
         type: (0, _graphql.GraphQLNonNull)(_graphql.GraphQLID)
       },
-      genero: {
+      calificacion: {
         type: _graphql.GraphQLString
       },
-      username: {
+      horario: {
+        type: _graphql.GraphQLString
+      },
+      descripcion: {
         type: _graphql.GraphQLString
       },
       foto: {
         type: _graphql.GraphQLString
       },
-      direcciones: {
-        type: (0, _graphql.GraphQLList)(_graphql.GraphQLString)
+      costo: {
+        type: _graphql.GraphQLString
       },
-      card: {
-        type: (0, _graphql.GraphQLList)(_graphql.GraphQLString)
+      productos: {
+        type: (0, _graphql.GraphQLNonNull)(_graphql.GraphQLID)
       }
     };
   }

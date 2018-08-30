@@ -16,6 +16,6 @@ export default {
         const product = new Producto(params.data);
         const newProduct = product.save()
         if(!newProduct) throw Error('Error al crear el nuevo producto')
-        return newPropiedad
+        return newProduct
     }
 }
