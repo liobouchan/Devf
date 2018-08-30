@@ -17,3 +17,59 @@
 
   "direcciones":[]
 }
+
+
+mutation agregarTienda($input : addTienda!){
+	addTienda(data: $input){
+		nombre,
+		direccion,
+		correo,
+		telefono,
+		tipo_Restaurante{
+			nombre,
+			descripcion
+		},
+		calificacion,
+		horario,
+		descripcion,
+		foto,
+		costo
+	}
+}
+{
+	"input":{
+		"nombre": "Changuitos Burger",
+		"direccion": "Selva #66",
+		"correo": "c@gmail.com",
+		"telefono": "27375421",
+		"tipo_Restaurante": "5b873dd1733cf72e04b16ad6",
+		"calificacion": "10",
+		"horario": "24 horas",
+		"descripcion": "Las mejores hamburguesas del Reino Animal",
+		"costo": "Medio"
+	}
+}
+
+mutation agregarPedido($input: addPedidos!){
+	addPedido(data: $input){
+		status_pedido,
+		status_pago,
+		direccion,
+		cupon{
+			cupon,
+			descuento,
+			descripcion
+		},
+		user{
+			nombre,
+		},
+		tienda{
+			_id,
+			nombre
+		},
+		monto,
+		productos{
+			nombre
+		}
+	}
+}
