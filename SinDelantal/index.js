@@ -7,6 +7,7 @@ import graphQLHTTP from 'express-graphql'
 import schema from './src/graphql'
 import User from './src/models/user'
 import {createToken} from './src/resolvers/createToken'
+import { verifyToken } from './src/resolvers/verifyToken'
 
 const app = express();
 const PORT = process.env.PORT || 8000
@@ -52,10 +53,35 @@ app.post('/user/create', (req, res) =>{
     })
 });
 
+app.get('/token' , (req,res) =>{
+  try{
+    const token = req.headers['authorization']
+    console.log(token)
+
+    let user = verifyToken(token)
+    res.send(user)
+  }catch(err){
+    res.status(401).json({message:err.message})
+  }
+})
+
+app.use('/graphql', (req, res, next) =>{
+  const token = req.headers['authorization']
+  try{
+    req.user = verifyToken(token)
+    next()
+  }catch(err){
+    res.status(401).json({message:err.message})
+  }
+})
+
 app.use('/graphql' , graphQLHTTP((req,res) => ({
   schema,
   graphiql: true,
-  pretty: true
+  pretty: true,
+  context: {
+    user:req.user
+  }
 })));
 
 app.listen(PORT, () => console.log('Server on ' + PORT));
