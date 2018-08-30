@@ -6,6 +6,7 @@ import graphQLHTTP from 'express-graphql'
 
 import schema from './src/graphql'
 import User from './src/models/user'
+import {createToken} from './src/resolvers/createToken'
 
 const app = express();
 const PORT = process.env.PORT || 8000
@@ -21,6 +22,16 @@ app.use(cors());
 
 app.get('/', (req , res)=>{
   res.send('Sin Delantal on');
+});
+
+app.post('/login', (req,res) =>{
+  const token = createToken(req.body.username, req.body.password)
+    .then(token => {
+      res.status(201).json({token})
+    })
+    .catch(()=>{
+      res.status(403).json({message:'Login Failed'})
+    })
 });
 
 app.post('/user/create', (req, res) =>{

@@ -100,8 +100,6 @@ const UserSchema = new Schema({
 
 }, { collection: 'User', timestamps: true });
 
-
-
 UserSchema.pre('save',function(next){
 
   let user = this;
@@ -129,5 +127,11 @@ UserSchema.pre('save',function(next){
   });
 
 });
+
+UserSchema.methods.comparePassword = function(inputPassword, cb) {
+  bcrypt.compare(inputPassword , this.password, function(err , isMatch){
+    cb(null,isMatch)
+  })
+}
 
 export default mongoose.model('User', UserSchema);
