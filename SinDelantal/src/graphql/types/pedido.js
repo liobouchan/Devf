@@ -37,21 +37,21 @@ import Producto from '../../models/producto'
             type: CuponType,
             resolve(pedido){
                 const {cupon} = pedido
-                return Cupon.findById(cupon).exe()
+                return Cupon.findById(cupon).exec()
             }
         },
         user:{
             type: UserType,
             resolve(pedido){
                 const {user} = pedido
-                return User.findById(user).exe()
+                return User.findById(user).exec()
             }
         },
         tienda:{
             type: StoreType,
             resolve(pedido){
                 const {tienda} = pedido
-                return Tienda.findById(tienda).exe()
+                return Tienda.findById(tienda).exec()
             }
         },
         monto:{
