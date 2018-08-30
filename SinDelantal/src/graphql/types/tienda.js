@@ -10,6 +10,8 @@ import {
 
 import {type_RestaurantType} from './tipo_Restaurante'
 import Tipo_Restaurante from '../../models/tipo_Restaurante'
+import { ProductType } from './producto'
+import Productos from '../../models/producto'
 
 export const StoreType = new GraphQLObjectType({
   name: 'Tienda',
@@ -37,21 +39,28 @@ export const StoreType = new GraphQLObjectType({
         return Tipo_Restaurante.findById(tipo_Restaurante).exec()
       }
     },
-    genero: {
+    calificacion: {
       type : GraphQLString
     },
-    username: {
+    horario: {
+      type : GraphQLString
+    },
+    descripcion: {
       type : GraphQLString
     },
     foto: {
       type : GraphQLString
     },
-    direcciones: {
-      type : GraphQLList(GraphQLString)
+    costo: {
+      type : GraphQLString
     },
-    card: {
-      type : GraphQLList(GraphQLString)
-    }
+    productos: {
+      type : ProductType,
+      resolve(product){
+        const{productos} = product
+        return Productos.findById(productos).exec()
+      }
+    },
   })
 });
 
@@ -74,20 +83,23 @@ export const StoreInputType = new GraphQLInputObjectType({
     tipo_Restaurante: {
       type : GraphQLNonNull(GraphQLID)
     },
-    genero: {
+    calificacion: {
       type : GraphQLString
     },
-    username: {
+    horario: {
+      type : GraphQLString
+    },
+    descripcion: {
       type : GraphQLString
     },
     foto: {
       type : GraphQLString
     },
-    direcciones: {
-      type : GraphQLList(GraphQLString)
+    costo: {
+      type : GraphQLString
     },
-    card: {
-      type : GraphQLList(GraphQLString)
-    }
+    productos: {
+      type : GraphQLNonNull(GraphQLID)
+    },
   })
 });

@@ -1,0 +1,19 @@
+{
+  "nombre":"Leonardo",
+
+  "apellidos":"Bouchan",
+
+  "fecha_nacimiento":"1995-03-20",
+
+  "correo":"leo.bouchan@gmail.com",
+
+  "telefono":5527375421,
+
+  "genero":"M",
+
+  "username":"liobouchan",
+
+  "password":"123",
+
+  "direcciones":[]
+}
