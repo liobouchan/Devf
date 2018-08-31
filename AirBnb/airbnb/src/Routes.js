@@ -27,7 +27,7 @@ class Routes extends Component {
                         <Route exact path = '/' component={Home}/>
                         <Route exact path = '/logout' component={Logout}/>
                         <Route exact path = '/propiedad/:id' component={DetailPropiedad}/>
-                        <Route exact path = '/propiedad/new' component={FormPropiedad}/>
+                        <Route exact path = '/propiedades/new' component={FormPropiedad}/>
                     </main>
                 </ApolloProvider>
             </Router>
